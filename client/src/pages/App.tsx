@@ -1,24 +1,67 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
+import {
+  Icon,
+  Button,
+  Classes,
+  Navbar,
+  NavbarDivider,
+  NavbarGroup,
+  NavbarHeading,
+} from '@blueprintjs/core';
+
+import Plants from "../pages/Plants";
+import Collections from "../pages/Collections";
+import Home from "../pages/Home";
+
 import './App.scss';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar>
+          <NavbarGroup style={{ width: "100% "}}>
+            <NavbarGroup className="nav-pages-group">
+              <NavbarHeading className="page-title">
+                <Link to="/">Garden Catalogue</Link>
+              </NavbarHeading>
+              <Link className="icon-link" to="/plants">
+                <Icon icon="tree" />
+                Plants
+              </Link>
+              <Link className="icon-link" to="/collections">
+                <Icon icon="briefcase" />
+                Collections
+              </Link>
+            </NavbarGroup>
+
+            <NavbarDivider />
+            <Button className={Classes.MINIMAL} icon="user" />
+            <Button className={Classes.MINIMAL} icon="cog" />
+          </NavbarGroup>
+        </Navbar>
+
+        <Switch>
+          <Route path="/plants">
+            <Plants />
+          </Route>
+          <Route path="/collections">
+            <Collections />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
