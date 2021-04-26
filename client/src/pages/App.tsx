@@ -16,9 +16,9 @@ import {
   NavbarHeading,
 } from '@blueprintjs/core';
 
-import Plants from "../pages/Plants";
-import Collections from "../pages/Collections";
-import Home from "../pages/Home";
+import Plants from "./plants/Plants";
+import Collections from "./collections/Collections";
+import Home from "./home/Home";
 
 import './App.scss';
 

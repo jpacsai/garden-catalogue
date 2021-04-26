@@ -10,8 +10,8 @@ import AddPlant from './AddPlant';
 
 import './Plants.scss';
 
-import { fetchAllPlants } from '../redux/models/plants';
-import { RootState } from '../redux/reducers/index';
+import { fetchAllPlants } from '../../redux/models/plants';
+import { RootState } from '../../redux/reducers/index';
 
 type PlantsProps = {};
 
